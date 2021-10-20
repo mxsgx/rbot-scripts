@@ -17,7 +17,19 @@ public class Script
 
 	public List<string> BlockedItems = new List<string>()
 	{
-		"DuckStick2000"
+		"DuckStick2000",
+		"Unidentified 2",
+		"Unidentified 3",
+		"Unidentified 7",
+		"Unidentified 8",
+		"Unidentified 12",
+		"Unidentified 14",
+		"Unidentified 15",
+		"Unidentified 17",
+		"Unidentified 18",
+		"Unidentified 30",
+		"Unidentified 32",
+		"Unidentified 33"
 	};
 
 	public void ScriptMain(ScriptInterface instance)
