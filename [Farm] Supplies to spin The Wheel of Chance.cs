@@ -55,7 +55,10 @@ public class Script
 
 		bot.Player.LoadBank();
 
+		bot.Wait.ForBankLoad();
+
 		SortItems();
+		CheckBank();
 
 		AllowedItems.ForEach(itemName => bot.Drops.Add(itemName));
 
@@ -102,6 +105,19 @@ public class Script
 		}
 
 		bot.Player.Jump(bot.Player.Cell, bot.Player.Pad);
+	}
+
+	public void CheckBank()
+	{
+		bot.Bank.BankItems.ForEach(item => {
+			if (AllowedItems.Contains(item.Name))
+			{
+				if (item.Category == ItemCategory.Item || item.Category == ItemCategory.Resource)
+					bot.Bank.ToInventory(item.Name);
+				else
+					BlockedItems.Add(item.Name);
+			}
+		});
 	}
 
 	public void SortItems()
