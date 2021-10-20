@@ -20,7 +20,11 @@ public class Script
 
 	public List<string> BlockedItems = new List<string>()
 	{
-		//
+		"Hex Blade of Nulgath",
+		"Voidfangs of Nulgath",
+		"Bane of Nulgath",
+		"Shifter Helm of Nulgath",
+		"Nulgath Horns"
 	};
 
 	public string OptionsStorage = "[Farm] Nulgath (Larvae)";
