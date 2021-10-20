@@ -60,6 +60,8 @@ public class Script
 		SortItems();
 		CheckBank();
 
+		bot.Drops.Pickup.Clear();
+
 		AllowedItems.ForEach(itemName => bot.Drops.Add(itemName));
 
 		bot.Drops.Start();
@@ -84,7 +86,6 @@ public class Script
 		bot.Skills.Clear();
 		bot.Skills.StopTimer();
 
-		bot.Drops.Clear();
 		bot.Drops.Stop();
 	}
 
@@ -115,7 +116,10 @@ public class Script
 				if (item.Category == ItemCategory.Item || item.Category == ItemCategory.Resource)
 					bot.Bank.ToInventory(item.Name);
 				else
+				{
+					AllowedItems.Remove(item.Name);
 					BlockedItems.Add(item.Name);
+				}
 			}
 		});
 	}
