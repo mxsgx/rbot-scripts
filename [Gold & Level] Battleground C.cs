@@ -27,7 +27,12 @@ public class Script
 
 	public List<IOption> Options = new List<IOption>()
 	{
-		new Option<Difficulty>("difficulty", "Difficulty", "Easy will take Level 16-30 and Level 31-45 quest and Level 46-60 as addition quest if Hard difficulty is selected. Default is Easy.", Difficulty.Easy)
+		new Option<Difficulty>(
+			"difficulty",
+			"Difficulty",
+			"Easy will take Level 16-30 and Level 31-45 quest and Level 46-60 as addition quest if Hard difficulty is selected. Default is Easy.",
+			Difficulty.Easy
+		)
 	};
 
 	public StringBuilder Monsters = new StringBuilder("Ice Yeti");

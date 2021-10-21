@@ -39,7 +39,12 @@ public class Script
 
 	public List<IOption> Options = new List<IOption>()
 	{
-		new Option<int>("manaEnergyForNulgathStackNumber", "Mana Energy for Nulgath Stack Number", "Prioritize to get \"Mana Energy for Nulgath\" item until specified stack number before turn in.", 1)
+		new Option<int>(
+			"manaEnergyForNulgathStackNumber",
+			"Mana Energy for Nulgath Stack Number",
+			"Prioritize to get \"Mana Energy for Nulgath\" item until specified stack number before turn in.",
+			1
+		)
 	};
 
 	public void ScriptMain(ScriptInterface instance)
