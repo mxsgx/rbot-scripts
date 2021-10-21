@@ -11,13 +11,21 @@ public class Script
 
 	public int QuestID = 2857;
 
+	/// <summary>
+	/// Allowed items list that will pickup.
+	/// </summary>
 	public List<string> AllowedItems = new List<string>()
 	{
+		// All items that listed below is initial. Feel free to add as much as you want.
 		"Escherion's Helm"
 	};
 
+	/// <summary>
+	/// Blocked items list. Actually this list is used for filter.
+	/// </summary>
 	public List<string> BlockedItems = new List<string>()
 	{
+		// All items that listed below is initial. Feel free to add as much as you want.
 		"DuckStick2000",
 		"Unidentified 2",
 		"Unidentified 3",
@@ -61,8 +69,10 @@ public class Script
 		SortItems();
 		CheckBank();
 
+		// Clear drop pickup list
 		bot.Drops.Pickup.Clear();
 
+		// Add all allowed items to drop pickup list
 		AllowedItems.ForEach(itemName => bot.Drops.Add(itemName));
 
 		bot.Drops.Start();
@@ -90,6 +100,9 @@ public class Script
 		bot.Drops.Stop();
 	}
 
+	/// <summary>
+	/// Hunt Escherion for Escherion's Helm. If Staff of Inversion alive kill first.
+	/// </summary>
 	public void HuntEscherion()
 	{
 		while (!bot.Inventory.Contains("Escherion's Helm"))
@@ -109,6 +122,11 @@ public class Script
 		bot.Player.Jump(bot.Player.Cell, bot.Player.Pad);
 	}
 
+	/// <summary>
+	/// Check items in bank. If item category (that listed in quest reward) is "Item" or "Resource" move to inventory
+	/// otherwise keep it in the bank and add item to blocked items and remove from allowed items if already exists
+	/// so drop grabber won't pickup.
+	/// </summary>
 	public void CheckBank()
 	{
 		bot.Bank.BankItems.ForEach(item => {
@@ -125,6 +143,9 @@ public class Script
 		});
 	}
 
+	/// <summary>
+	/// Get reward items and add to allowed items list if item name not in blocked items list.
+	/// </summary>
 	public void SortItems()
 	{
 		bot.Quests.EnsureLoad(QuestID);
@@ -132,7 +153,8 @@ public class Script
 		Quest quest = bot.Quests.QuestTree.Find(q => q.ID == QuestID);
 
 		quest.Rewards.ForEach(reward => {
-			if (!BlockedItems.Contains(reward.Name) && !AllowedItems.Contains(reward.Name))
+			if (!BlockedItems.Contains(reward.Name) && // Not in blocked items
+			    !AllowedItems.Contains(reward.Name)    // Not in allowed items (prevent duplicate)
 				AllowedItems.Add(reward.Name);
 		});
 	}
