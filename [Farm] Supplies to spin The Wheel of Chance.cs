@@ -155,6 +155,7 @@ public class Script
 		quest.Rewards.ForEach(reward => {
 			if (!BlockedItems.Contains(reward.Name) && // Not in blocked items
 			    !AllowedItems.Contains(reward.Name)    // Not in allowed items (prevent duplicate)
+			)
 				AllowedItems.Add(reward.Name);
 		});
 	}
