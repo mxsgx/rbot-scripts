@@ -30,7 +30,7 @@ public class Script
 		new Option<Difficulty>(
 			"difficulty",
 			"Difficulty",
-			"Easy will take Level 31-45 and Level 46-60 quest and Level 61-75 as addition quest if Hard difficulty is selected. Default is Easy.",
+			"Easy will take \"Level 31-45\" and \"Level 46-60\" quest and \"Level 61-75\" as addition quest if Hard difficulty is selected. Default is Easy.",
 			Difficulty.Easy
 		)
 	};
