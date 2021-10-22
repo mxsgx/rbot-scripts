@@ -137,7 +137,7 @@ public class Script
 				bot.Wait.ForQuestComplete(id);
 			}
 
-			if (!bot.Quests.ActiveQuests.Exists(quest => quest.ID == id))
+			if (!bot.Quests.IsInProgress(id))
 			{
 				bot.Quests.EnsureAccept(id);
 				bot.Wait.ForQuestAccept(id);
