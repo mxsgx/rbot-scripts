@@ -107,7 +107,7 @@ public class Script
 
 	public void CleanUpScript()
 	{
-		bot.Skills.Stop();
+		bot.Skills.StopTimer();
 		bot.Skills.Clear();
 
 		bot.Drops.Stop();
