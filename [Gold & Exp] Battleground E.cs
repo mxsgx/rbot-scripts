@@ -23,7 +23,7 @@ public class Script
 		"Battleground E Opponent Defeated"
 	};
 
-	public string OptionsStorage = "[Gold & Level] Battleground E";
+	public string OptionsStorage = "[Gold & Exp] Battleground E";
 
 	public List<IOption> Options = new List<IOption>()
 	{
