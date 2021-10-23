@@ -7,11 +7,11 @@ public class Script
 	public ScriptInterface bot;
 
 	public List<int> QuestIDs = new List<int>()
-    {
-        3828
-    };
+	{
+		3828
+	};
 
-    public List<IOption> Options = new List<IOption>()
+	public List<IOption> Options = new List<IOption>()
 	{
 		new Option<int>("shadowShieldStackNumber", "Shadow Shield Stack Number", "Number of \"Shadow Sield\" item you want to stack. Default value is 500", 500),
 		new Option<bool>("withDaily", "With Daily Quest", "With daily quest? True for yes and False for no.", false)
