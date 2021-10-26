@@ -132,7 +132,7 @@ public class Script
 		bot.Bank.BankItems.ForEach(item => {
 			if (AllowedItems.Contains(item.Name))
 			{
-				if (item.Category == ItemCategory.Item || item.Category == ItemCategory.Resource)
+				if (item.Category == ItemCategory.Item || item.Category == ItemCategory.Resource || item.Category == ItemCategory.QuestItem)
 					bot.Bank.ToInventory(item.Name);
 				else
 				{
